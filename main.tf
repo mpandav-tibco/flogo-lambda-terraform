@@ -1,10 +1,10 @@
 # Define the AWS provider
 provider "aws" {
-  region     = "eu-central-1" # Specify the AWS region
-  access_key = "ASIARC55DQGX7NCENHI2"
-  secret_key = "GpKm+8PzThx0QCE/Nchl/AJWP17S2So7PlXl19mm"
-  token      = "IQoJb3JpZ2luX2VjEMb//////////wEaDGV1LWNlbnRyYWwtMSJIMEYCIQDxl1eEp6F0tq4cGYdNhhE7gmEAel1YbSK2uemXEjhqJwIhAN/az95JWy+ytilLxmnfOTEk3RyudzeVmg7nP9ZKBR83KpwCCK///////////wEQABoMMDc1MDIxNjQ4MzAzIgwph2e3pp9zKaGOlKkq8AGq2h/gwWqreFlYowG0SpyXiwacvK6CQ8fUdNsjf8PesSBm/XikfZLELTRNhKWD235NRGaTwbmUjZ3M6WyTQL32jvJbmAUyYIKwXRXCrtE6UBySrkVS48OWQFIayo8g9JWMXiwoeRrY/StOYxxZyr4LBSi6oALtDBhTfi5L+LB0tjHgbejB/l/l3JnGTCue447p1NKAsuNXgay4uZDY1NK+Pq4teJ4NDKZXbZe1sR4JvqY5pSnBvEhIe2h16qgP3IN06BmRLNWVOt8x35+3UIZJ7rriksLcGA8uk0tEWDn4q1qOqdDCjbqgbpVPCB5y1v0w/rmGvAY6nAHjHpCslSysKfr5myF3TebZ+ryebkE9kVf0LWEsr0W6Dq8fTgPbHFTHklDN6yI35KxCj2FV4S2lUe0we6jM7ihYLc30srAKqCHm/Iw5HwX+v7gQlrpu5aAkD/v5dUMpMLfOisVCZ9NvfziiozPxluNVgbOPXTZ9XuBXG4NKeVxXDihtOOVWGCKD4v7r9erKUebvkA/9tV+sl9oESyo="
-  profile    = "mpandav"
+  region     = "eu-central-1"                             # Specify the AWS region
+  access_key = "ASIARC55DQGX7NCENHI2"                     # Required accessKey token
+  secret_key = "GpKm+8PzThx0QCE/Nchl/AJWP17S2So7PlXl19mm" # Required secretKey token
+  token      = "FwoGZXIvYXdzEJv//////////wEaDIN9Q7"       # Required security token
+  profile    = "xxxx"                                     # Optional profile name
 }
 
 # Create an IAM role for the Lambda function
