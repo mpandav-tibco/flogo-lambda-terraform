@@ -37,9 +37,9 @@ This repository provides a Terraform configuration that:
   Follow the steps outlined the main.tf (this is just for demonstration)
 
   1. **Run Terraform**:
-  - **Initialize Terraform**: `terraform init`
-  - **Plan the changes**: `terraform plan -out ./terraform-plan.yaml`  //reuse the configuration
-  - **Apply the changes**: ` terraform apply "./terraform-plan.yaml"`
+  - **Initialize Terraform**: `terraform init `
+  - **Plan the changes**: `terraform plan `
+  - **Apply the changes**: ` terraform apply `
 
 ## Customization
 - **Environment variables**: You can add environment variables to your Lambda function configuration in the main.tf file.
