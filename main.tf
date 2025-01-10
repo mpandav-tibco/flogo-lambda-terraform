@@ -1,10 +1,10 @@
 # Define the AWS provider
 provider "aws" {
-  region     = "eu-central-1"                             # Specify the AWS region
-  access_key = "ASIARC55DQGX7NCENHI2"                     # Required accessKey token
-  secret_key = "GpKm+8PzThx0QCE/Nchl/AJWP17S2So7PlXl19mm" # Required secretKey token
-  token      = "FwoGZXIvYXdzEJv//////////wEaDIN9Q7"       # Required security token
-  profile    = "xxxx"                                     # Optional profile name
+  region     = "eu-central-1" # Specify the AWS region
+  access_key = ""             # Required accessKey token
+  secret_key = ""             # Required secretKey token
+  token      = ""             # Required security token
+  profile    = "xxxx"         # Optional profile name
 }
 
 # Create an IAM role for the Lambda function
