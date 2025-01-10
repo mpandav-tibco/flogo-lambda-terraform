@@ -37,11 +37,17 @@ This repository provides a Terraform configuration that:
   Follow the steps outlined the main.tf (this is just for demonstration)
 
   1. **Run Terraform**:
-  - **Initialize Terraform**: `terraform init `![image](https://github.com/user-attachments/assets/fb7a400b-5142-4046-9927-8ffbce3f49b3)
+  - **Initialize Terraform**: `terraform init `
 
-  - **Plan the changes**: `terraform plan ` ![image](https://github.com/user-attachments/assets/105c0d76-ee54-4b3b-9643-767210f5701f)
+    ![image](https://github.com/user-attachments/assets/fb7a400b-5142-4046-9927-8ffbce3f49b3)
 
-  - **Apply the changes**: ` terraform apply ` ![image](https://github.com/user-attachments/assets/db6c172b-762a-4be1-829b-9d2114eafb3e)
+  - **Plan the changes**: `terraform plan `
+  
+    ![image](https://github.com/user-attachments/assets/105c0d76-ee54-4b3b-9643-767210f5701f)
+
+  - **Apply the changes**: ` terraform apply `
+
+    ![image](https://github.com/user-attachments/assets/db6c172b-762a-4be1-829b-9d2114eafb3e)
 
 
 ## Customization
