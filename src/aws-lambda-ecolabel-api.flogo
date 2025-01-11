@@ -614,22 +614,22 @@
     {
       "name": "AWS.aws_connection.Access_key_ID",
       "type": "string",
-      "value": "ASIARC55DQGXWPJTNCGN"
+      "value": ""
     },
     {
       "name": "AWS.aws_connection.Secret_access_key",
       "type": "string",
-      "value": "SECRET:dEiX5Yz760H/9e82wlUmCnkebf9Msumfy2T8eY91bxE/JfAKYgZu1NsCgryV+sQn3569QZt5jK8="
+      "value": ""
     },
     {
       "name": "AWS.aws_connection.Session_Token",
       "type": "string",
-      "value": "SECRET:PCKdOIbNRxru7XsPeYiqUJjPznJGqzODp0KilkHUBiloA270b2Q5zn58Kx+OhfL9Kb+1AGtHrzVOmQaiBG1FLE/V0UTJnvcHTLk/xfoU9Hoysd5gb4vHz43Aqe8fRBytfOuJcN855TJuXwbGW1myE5hdlnSzUnSW2wxIsg29EJQI/8KohQtsn2Dmxt3FJZgkqI8edH6/8R9/oGv66po+FMezJrUKolRgrCUO8F3ECq0GisI/V6SDT8zdsIH9EHq1rgPOD4AClaObYL9aQZbgAWebXSiET3cYv0S7FIHLDTZ9R4Wz+76F4HrbFrJO6gCMFLteQEnLL7oAAb1NDh44CK+3pSxqYcTiZpjWHfuyu8pB5dch4dC0T3EtIi3ZlclbsItEOAH43i01TYONqsnnYeHbCk60V0ULjp//Khr4NWKAi3Z7vlLDYsXZxfCSXzad2eN+V55eGKiZ5NFuWpgD7p6U0HYGVHJFc6OIHtwxBCzbBdjGuZUHia06STKUmrBVmr6Tx8Xe5d+EgFxATA2DhmP4p7NYlPaiDNRLcEqvsYl2Cb5J/ipyMtiupfEvu9t0cxIr+sUeGc8ubxKVtJDHRY8iC8U7rbsmCmF4xf0jXP8Yo/a3oUl01UPkOG0P69pQPizHbVeRBjgbCqvJPg5uTrFWhoBc2OxQ7Wu9G/YGw1r3+V3SsCDeSz0NqMdO9tCRBgM/eipy4c2BIvh9aUHmZL7FuwaPZSQPRhNv7ZL+IVk7VJbwxU4UNH5L0zx5rqm31gSCAO/03VC51fqLuId1vqRI3gFq4WpPcL/QY7ABJDEAtO7K1yoSHlngEuv7vrWNh2r4N0+rxC7mrbee6M9Nvymra1ZgPKHx05vYH1LBaGVdZ2J+O0MNxYlUGzIWbutsHtbvmoZvoMmOs/l5aW8fSeijsT+6G9la0JiX8QlrJhkVlDy6pcsBocxh+3XrGawL9oNqSpXlqH6/S0ev5EsyPdlKh3Hn62tAPqv9/Wbz1QaJr8q9AXODbraXHvyUgvxR0pKydBVQrINPYBP597biQm9+i5NVeS2rytDQPyUqIkEOJahKQ2HDXAvj40L4bBMlt0QtGnuUa2t6O2lXwakv/3KkNN/+vtX9PkXg4S7AFGPy88s80yFDwhn7dYcQrQlnDCxfTg4pre1f7yhwp5fbboQKJnjvAw/5aJ20dnEhzF30fDoYNTY+LIFjK7Xl1ald2Fcwm4wkuFqphWAHkeSN4qumYZMWm6xsjFRPDA=="
+      "value": ""
     },
     {
       "name": "AWS.aws_connection.Role_ARN",
       "type": "string",
-      "value": "arn:aws:iam::075021648303:role/EMEA_Lambda"
+      "value": "arn:aws:iam::xxx:role/EMEA_xxxx"
     },
     {
       "name": "AWS.aws_connection.Role_Session_Name",
