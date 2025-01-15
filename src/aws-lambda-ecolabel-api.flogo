@@ -12,7 +12,7 @@
     "github.com/project-flogo/contrib/function/string",
     "github.com/tibco/flogo-aws/src/app/AWS/connector"
   ],
-  "name": "Eco-Label-Demo-Service",
+  "name": "Eco-Label-API",
   "description": "Request for eco labels from provider",
   "version": "1.0.0",
   "type": "flogo:app",
@@ -316,7 +316,7 @@
                     "uuid": "=$activity[Get_Unique_ID].responseBody[0]",
                     "return_webhook_url": "=$property[\"Internal_APIs._Webhook_Ecolabel\"]",
                     "product": {
-                      "@foreach($activity[Get_Products].responseBody.products, product, $loop.id == coerce.toInt64($flow.EventPayload.productId))": {
+                      "@foreach($activity[Get_Products].responseBody.products,product, $loop.id == coerce.toInt64($flow.EventPayload.productId))": {
                         "id": "=$loop.id",
                         "title": "=$loop.title",
                         "description": "=$loop.description",
@@ -493,7 +493,7 @@
             }
           }
         ],
-        "fe_metadata": "eyJTdGFydEFjdGl2aXR5Ijp7IngiOjEwMCwieSI6MTAwfSwiR2V0X1Byb2R1Y3RzIjp7IngiOjI5MCwieSI6OTN9LCJHZXRfVW5pcXVlX0lEIjp7IngiOjU3OSwieSI6OTN9LCJFbnJpY2hfRWNvTGFiZWxfUmVxdWVzdCI6eyJ4Ijo4NTYsInkiOjkzfSwiVG9fRWNvTGFiZWxfUHJvdmlkZXIiOnsieCI6MTE0MSwieSI6OTN9LCJMb2dfU3VjY2Vzc19SZXNwb25zZSI6eyJ4IjoxNDE5LCJ5Ijo5M30sIlNVQ0NFU1NSZXBseSI6eyJ4IjoxNjkzLCJ5Ijo5Mn0sIkxvZ19FcnJvcl9SZXNwb25zZSI6eyJ4Ijo1NzAsInkiOjI4Nn0sIkVSUk9SUmVwbHkiOnsieCI6MTQwNCwieSI6Mjg0fX0=",
+        "fe_metadata": "eyJTdGFydEFjdGl2aXR5Ijp7IngiOjEwMCwieSI6MTAwfSwiR2V0X1Byb2R1Y3RzIjp7IngiOjI5MCwieSI6OTN9LCJHZXRfVW5pcXVlX0lEIjp7IngiOjU3OSwieSI6OTN9LCJFbnJpY2hfRWNvTGFiZWxfUmVxdWVzdCI6eyJ4Ijo4NTYsInkiOjkzfSwiVG9fRWNvTGFiZWxfUHJvdmlkZXIiOnsieCI6MTE0MSwieSI6OTN9LCJMb2dfU3VjY2Vzc19SZXNwb25zZSI6eyJ4IjoxMDQ0LCJ5Ijo0NTJ9LCJTVUNDRVNTUmVwbHkiOnsieCI6MTI5OCwieSI6MzUxfSwiTG9nX0Vycm9yX1Jlc3BvbnNlIjp7IngiOjUwNiwieSI6NDUyfSwiRVJST1JSZXBseSI6eyJ4Ijo3MjMsInkiOjQ1M319",
         "errorHandler": {
           "tasks": [
             {
@@ -569,13 +569,63 @@
           ],
           "fe_metadata": {
             "input": "{\"type\":\"object\",\"title\":\"ReceiveLambdaInvocation\",\"properties\":{\"Function\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"LogGroup\":{\"type\":\"string\"},\"LogStream\":{\"type\":\"string\"},\"Name\":{\"type\":\"string\"},\"Version\":{\"type\":\"string\"}}},\"Context\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"AwsRequestID\":{\"type\":\"string\"},\"ARN\":{\"type\":\"string\"}}},\"Identity\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"CognitoIdentityID\":{\"type\":\"string\"},\"CognitoIdentityPoolID\":{\"type\":\"string\"}}},\"ClientApp\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"installation_id\":{\"type\":\"string\"},\"app_title\":{\"type\":\"string\"},\"app_version_code\":{\"type\":\"string\"},\"app_package_name\":{\"type\":\"string\"}}},\"EventPayload\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"productId\":{\"type\":\"string\"}}}}}",
-            "output": "{\"type\":\"object\",\"title\":\"Inputs\",\"properties\":{\"data\":{\"type\":\"object\",\"title\":\"Inputs\",\"properties\":{\"code\":{\"type\":\"integer\",\"required\":false},\"data\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\"},\"orderId\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"}}}},\"required\":[]}}}"
+            "output": "{\"type\":\"object\",\"title\":\"Inputs\",\"properties\":{\"data\":{\"type\":\"object\",\"title\":\"Inputs\",\"properties\":{\"code\":{\"type\":\"integer\",\"required\":false},\"data\":{\"$schema\":\"http://json-schema.org/draft-04/schema#\",\"type\":\"object\",\"properties\":{\"message\":{\"type\":\"string\"},\"orderId\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"}}}},\"required\":[]}},\"required\":[]}"
           }
         }
       }
     }
   ],
   "properties": [
+    {
+      "name": "AWS.aws_connection.Custom_Endpoint",
+      "type": "boolean",
+      "value": false
+    },
+    {
+      "name": "AWS.aws_connection.Region",
+      "type": "string",
+      "value": "us-east-1"
+    },
+    {
+      "name": "AWS.aws_connection.Authentication_Type",
+      "type": "string",
+      "value": "AWS Credentials"
+    },
+    {
+      "name": "AWS.aws_connection.Access_key_ID",
+      "type": "string",
+      "value": "ASIARC55DQGXXGAYBARE"
+    },
+    {
+      "name": "AWS.aws_connection.Secret_access_key",
+      "type": "string",
+      "value": "SECRET:YiUVstqrY0GKfD1ERPO5I2nXH+Pstb2UiyjVVjgsAZTS3AN8lDGPyI2QqHpobyhj8Ku8bxgq3Hc="
+    },
+    {
+      "name": "AWS.aws_connection.Session_Token",
+      "type": "string",
+      "value": "SECRET:SBExbajKxLgWtNXAt2aFeVn0Xfff9gtfDXXSdEhAbj8AFiDdibIkRIVRH7C/ujT6EyHuZ2+7/xIMqHSK4q6APIZngGTJUHmqK8OTY3cOD9DA8T6xZLPNzPGNSKzZZn27sZNFaLToHVEN9vb7Pfl2x+cAq0dhF4axrRQC7QzN0w4XtJeiCBkoPY8PNSDLW6GJypLvf8C75oL8n5JyBpAxlCHnyqLlX5/gQRstPofVR4/qvGm2qfUv4aqvmXCuv/APAFr2DDmCmZ90jBn0ZaWRx5Ksv0cJB6E/9IX+oATU3QOQMiJ+J2zX6/B1uCijDIoXxDqj5DrxCCyiyLjC7e2swz0X15sjWCkzDb0p9HfCOdCjuie2th9/vLZpPXO88DnKQJB+EWn+SV2DB7vcBHiCPW05ggoJhsHmycqyQUkeutVD/ETsUfTTB7HoU2GalHBS/W9nv+10e6s88cb//2oT2J59bs5Hb2C4S4W8+BVtjxG/Ekrzgx7yN9P0FTydbR+ezk+0SCga54qH1qD5lt4ML0m9bKvMb+z7xhMn3jPQX3lKdhp9CrhIRzITbAcOe08tvu06yl9UStKWnmg929k9EZnfCWuYWhhufX9tNkdQ1EFXgQ86RVZX9xDxmwgGbVQhZ2HhZKEyF6+TWQTr15VjYRqjNnMsysK/FjNGhbnmY7nwsZbNwMt/YAyrS6G22et2Y04VYkh1fCJfNYJN3KSjMqjGjRLSq4jQ68JohwjkrZf7Ntp+63NsKk8wMGVeG3C79XaBTPG7+e4TwQuzoRdwjoV8GcKddZnXBiMiPoMgd+LlXDQRfmVDJ8Lc/L7jhZ7t0Dfu0RJHO9+YSYxEd2vUAlHdEP87OS1anQcJiMtKuAAG3Ps/xEx0ys15C4uB7AaFMUQ48qhHHtxiZrz3W/w2KkqMwT697JsVAFS7Q9b1kfIFNiy5+FogpmKFsQiBnmbSs4al0GVwZRE+OObN5In9Qe8kTfugWd5Mpn1fNbQd0STxnosL5f1yRIe1umLApddUVlPa05OnkKn6MSNUctARwYpApYVkifnJCqUf572jFHhEXMcOZBJn0TH87sS/ydgGJh7OXXVvOM5XIh5kjOY7bi1azAZAhH6WDu2aXd0ll5LZoaaLaeqoiKqiNtbS6NlNffpYtu9yG7MwEWb5m70hcytG3OFUmHBnIyjVPffAlj6fcATTrrhHybu3VZejS3yJaFCEVA=="
+    },
+    {
+      "name": "AWS.aws_connection.Role_ARN",
+      "type": "string",
+      "value": "arn:aws:iam::075021648303:role/EMEA_Lambda"
+    },
+    {
+      "name": "AWS.aws_connection.Role_Session_Name",
+      "type": "string",
+      "value": "aws-lambda"
+    },
+    {
+      "name": "AWS.aws_connection.External_ID",
+      "type": "string",
+      "value": "aws-lambda"
+    },
+    {
+      "name": "AWS.aws_connection.Expiration_Duration",
+      "type": "float64",
+      "value": 900
+    },
     {
       "name": "Service_APIs._Products",
       "type": "string",
@@ -595,56 +645,6 @@
       "name": "Internal_APIs._Webhook_Ecolabel",
       "type": "string",
       "value": "https://a595d45b3eb83074b29e4cdd77-integration.eu-west-1.cloud.tibcoapps.com:443/fkunrk22m23kblw7np7ub7m2pflkhirv/receive/ecolabel/v1"
-    },
-    {
-      "name": "AWS.aws_connection.Custom_Endpoint",
-      "type": "boolean",
-      "value": false
-    },
-    {
-      "name": "AWS.aws_connection.Region",
-      "type": "string",
-      "value": "us-east-1"
-    },
-    {
-      "name": "AWS.aws_connection.Authentication_Type",
-      "type": "string",
-      "value": "AWS Credentials"
-    },
-    {
-      "name": "AWS.aws_connection.Access_key_ID",
-      "type": "string",
-      "value": ""
-    },
-    {
-      "name": "AWS.aws_connection.Secret_access_key",
-      "type": "string",
-      "value": ""
-    },
-    {
-      "name": "AWS.aws_connection.Session_Token",
-      "type": "string",
-      "value": ""
-    },
-    {
-      "name": "AWS.aws_connection.Role_ARN",
-      "type": "string",
-      "value": "arn:aws:iam::xxx:role/EMEA_xxxx"
-    },
-    {
-      "name": "AWS.aws_connection.Role_Session_Name",
-      "type": "string",
-      "value": "aws-lambda"
-    },
-    {
-      "name": "AWS.aws_connection.External_ID",
-      "type": "string",
-      "value": ""
-    },
-    {
-      "name": "AWS.aws_connection.Expiration_Duration",
-      "type": "float64",
-      "value": 900
     }
   ],
   "schemas": {
@@ -694,7 +694,7 @@
       }
     }
   },
-  "contrib": "W3sicmVmIjoiZ2l0aHViLmNvbS90aWJjby9mbG9nby1nZW5lcmFsL3NyYy9hcHAvR2VuZXJhbCIsImlkIjoiR2VuZXJhbCIsInZlcnNpb24iOiIxLjYuMiIsInRhZyI6IjEuNi4yLWIwMiIsIm5hbWUiOiJHZW5lcmFsIiwiczNsb2NhdGlvbiI6IlRpYmNvL0dlbmVyYWwiLCJpc1VzZXJFeHRlbnNpb24iOmZhbHNlfSx7InJlZiI6ImdpdGh1Yi5jb20vdGliY28vd2ktcGx1Z2lucy9jb250cmlidXRpb25zL2Zsb2dvLWxhbWJkYS9zcmMvYXBwL0xhbWJkYSIsImlkIjoiTGFtYmRhIiwidmVyc2lvbiI6IjEuMy4yIiwidGFnIjoiMS4zLjItYjAxLWZsb2dvLTIuMjUuMSIsIm5hbWUiOiJBV1MgTGFtYmRhIiwic2hpbSI6dHJ1ZSwiczNsb2NhdGlvbiI6IlRpYmNvL0xhbWJkYSIsImlzVXNlckV4dGVuc2lvbiI6ZmFsc2V9LHsicmVmIjoiZ2l0aHViLmNvbS90aWJjby9mbG9nby1hd3Mvc3JjL2FwcC9BV1MiLCJpZCI6IkFXUyIsInZlcnNpb24iOiIxLjIuMiIsInRhZyI6IjEuMi4yLWIwMiIsIm5hbWUiOiJBV1MiLCJzM2xvY2F0aW9uIjoiVGliY28vQVdTIiwiaXNVc2VyRXh0ZW5zaW9uIjpmYWxzZX1d",
+  "contrib": "W3sicmVmIjoiZ2l0aHViLmNvbS90aWJjby93aS1wbHVnaW5zL2NvbnRyaWJ1dGlvbnMvZmxvZ28tbGFtYmRhL3NyYy9hcHAvTGFtYmRhIiwiaWQiOiJMYW1iZGEiLCJ2ZXJzaW9uIjoiMS4zLjIiLCJ0YWciOiIxLjMuMi1iMDEtZmxvZ28tMi4yNS4xIiwibmFtZSI6IkFXUyBMYW1iZGEiLCJzaGltIjp0cnVlLCJzM2xvY2F0aW9uIjoiVGliY28vTGFtYmRhIiwiaXNVc2VyRXh0ZW5zaW9uIjpmYWxzZX0seyJyZWYiOiJnaXRodWIuY29tL3RpYmNvL2Zsb2dvLWdlbmVyYWwvc3JjL2FwcC9HZW5lcmFsIiwiaWQiOiJHZW5lcmFsIiwidmVyc2lvbiI6IjEuNi4yIiwidGFnIjoiMS42LjItYjAyIiwibmFtZSI6IkdlbmVyYWwiLCJzM2xvY2F0aW9uIjoiVGliY28vR2VuZXJhbCIsImlzVXNlckV4dGVuc2lvbiI6ZmFsc2V9LHsicmVmIjoiZ2l0aHViLmNvbS90aWJjby9mbG9nby1hd3Mvc3JjL2FwcC9BV1MiLCJpZCI6IkFXUyIsInZlcnNpb24iOiIxLjIuMiIsInRhZyI6IjEuMi4yLWIwMiIsIm5hbWUiOiJBV1MiLCJzM2xvY2F0aW9uIjoiVGliY28vQVdTIiwiaXNVc2VyRXh0ZW5zaW9uIjpmYWxzZX1d",
   "metadata": {
     "endpoints": [],
     "flogoVersion": "2.25.1"
